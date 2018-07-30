@@ -3,14 +3,12 @@ package com.art.pojo;
 import java.io.Serializable;
 import java.util.Date;
 
-public class Item implements Serializable{
-    private Integer id;
+public class Item implements Serializable {
+    private long id;
 
     private String title;
 
-    private Integer pid;
-
-    private String pname;
+    private Integer cid;
 
     private Integer num;
 
@@ -24,15 +22,13 @@ public class Item implements Serializable{
 
     private String image;
 
-    private String description;
-
     private Integer status;
 
-    public Integer getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -44,20 +40,12 @@ public class Item implements Serializable{
         this.title = title == null ? null : title.trim();
     }
 
-    public Integer getPid() {
-        return pid;
+    public Integer getCid() {
+        return cid;
     }
 
-    public void setPid(Integer pid) {
-        this.pid = pid;
-    }
-
-    public String getPname() {
-        return pname;
-    }
-
-    public void setPname(String pname) {
-        this.pname = pname == null ? null : pname.trim();
+    public void setCid(Integer cid) {
+        this.cid = cid;
     }
 
     public Integer getNum() {
@@ -106,14 +94,6 @@ public class Item implements Serializable{
 
     public void setImage(String image) {
         this.image = image == null ? null : image.trim();
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description == null ? null : description.trim();
     }
 
     public Integer getStatus() {

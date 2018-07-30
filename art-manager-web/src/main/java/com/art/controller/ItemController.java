@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.art.pojo.ArtResult;
 import com.art.pojo.EasyUIDataGridResult;
 import com.art.pojo.Item;
 import com.art.service.ItemService;
@@ -28,4 +29,12 @@ public EasyUIDataGridResult getItemListByPage(Integer page,Integer rows)
 {
 	return itemService.getItemByPage(page,rows);
 }
+
+@RequestMapping("/item/save")
+@ResponseBody
+public ArtResult addItem(Item item,String desc)
+{   System.out.println(item);
+	return itemService.addItem(item,desc);
 }
+}
+

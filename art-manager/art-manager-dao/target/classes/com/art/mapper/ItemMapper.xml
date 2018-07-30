@@ -4,15 +4,13 @@
   <resultMap id="BaseResultMap" type="com.art.pojo.Item" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="title" property="title" jdbcType="VARCHAR" />
-    <result column="pid" property="pid" jdbcType="INTEGER" />
-    <result column="pname" property="pname" jdbcType="VARCHAR" />
+    <result column="cid" property="cid" jdbcType="INTEGER" />
     <result column="num" property="num" jdbcType="INTEGER" />
     <result column="sales_volume" property="salesVolume" jdbcType="VARCHAR" />
     <result column="price" property="price" jdbcType="BIGINT" />
     <result column="created" property="created" jdbcType="DATE" />
     <result column="updated" property="updated" jdbcType="DATE" />
     <result column="image" property="image" jdbcType="VARCHAR" />
-    <result column="description" property="description" jdbcType="VARCHAR" />
     <result column="status" property="status" jdbcType="INTEGER" />
   </resultMap>
   <sql id="Example_Where_Clause" >
@@ -74,8 +72,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    id, title, pid, pname, num, sales_volume, price, created, updated, image, description, 
-    status
+    id, title, cid, num, sales_volume, price, created, updated, image, status
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.art.pojo.ItemExample" >
     select
@@ -108,14 +105,14 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.art.pojo.Item" >
-    insert into item (id, title, pid, 
-      pname, num, sales_volume, 
-      price, created, updated, image, 
-      description, status)
-    values (#{id,jdbcType=INTEGER}, #{title,jdbcType=VARCHAR}, #{pid,jdbcType=INTEGER}, 
-      #{pname,jdbcType=VARCHAR}, #{num,jdbcType=INTEGER}, #{salesVolume,jdbcType=VARCHAR}, 
-      #{price,jdbcType=BIGINT}, #{created,jdbcType=DATE}, #{updated,jdbcType=DATE}, #{image,jdbcType=VARCHAR}, 
-      #{description,jdbcType=VARCHAR}, #{status,jdbcType=INTEGER})
+    insert into item (id, title, cid, 
+      num, sales_volume, price, 
+      created, updated, image, 
+      status)
+    values (#{id,jdbcType=INTEGER}, #{title,jdbcType=VARCHAR}, #{cid,jdbcType=INTEGER}, 
+      #{num,jdbcType=INTEGER}, #{salesVolume,jdbcType=VARCHAR}, #{price,jdbcType=BIGINT}, 
+      #{created,jdbcType=DATE}, #{updated,jdbcType=DATE}, #{image,jdbcType=VARCHAR}, 
+      #{status,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" parameterType="com.art.pojo.Item" >
     insert into item
@@ -126,11 +123,8 @@
       <if test="title != null" >
         title,
       </if>
-      <if test="pid != null" >
-        pid,
-      </if>
-      <if test="pname != null" >
-        pname,
+      <if test="cid != null" >
+        cid,
       </if>
       <if test="num != null" >
         num,
@@ -150,9 +144,6 @@
       <if test="image != null" >
         image,
       </if>
-      <if test="description != null" >
-        description,
-      </if>
       <if test="status != null" >
         status,
       </if>
@@ -164,11 +155,8 @@
       <if test="title != null" >
         #{title,jdbcType=VARCHAR},
       </if>
-      <if test="pid != null" >
-        #{pid,jdbcType=INTEGER},
-      </if>
-      <if test="pname != null" >
-        #{pname,jdbcType=VARCHAR},
+      <if test="cid != null" >
+        #{cid,jdbcType=INTEGER},
       </if>
       <if test="num != null" >
         #{num,jdbcType=INTEGER},
@@ -187,9 +175,6 @@
       </if>
       <if test="image != null" >
         #{image,jdbcType=VARCHAR},
-      </if>
-      <if test="description != null" >
-        #{description,jdbcType=VARCHAR},
       </if>
       <if test="status != null" >
         #{status,jdbcType=INTEGER},
@@ -211,11 +196,8 @@
       <if test="record.title != null" >
         title = #{record.title,jdbcType=VARCHAR},
       </if>
-      <if test="record.pid != null" >
-        pid = #{record.pid,jdbcType=INTEGER},
-      </if>
-      <if test="record.pname != null" >
-        pname = #{record.pname,jdbcType=VARCHAR},
+      <if test="record.cid != null" >
+        cid = #{record.cid,jdbcType=INTEGER},
       </if>
       <if test="record.num != null" >
         num = #{record.num,jdbcType=INTEGER},
@@ -235,9 +217,6 @@
       <if test="record.image != null" >
         image = #{record.image,jdbcType=VARCHAR},
       </if>
-      <if test="record.description != null" >
-        description = #{record.description,jdbcType=VARCHAR},
-      </if>
       <if test="record.status != null" >
         status = #{record.status,jdbcType=INTEGER},
       </if>
@@ -250,15 +229,13 @@
     update item
     set id = #{record.id,jdbcType=INTEGER},
       title = #{record.title,jdbcType=VARCHAR},
-      pid = #{record.pid,jdbcType=INTEGER},
-      pname = #{record.pname,jdbcType=VARCHAR},
+      cid = #{record.cid,jdbcType=INTEGER},
       num = #{record.num,jdbcType=INTEGER},
       sales_volume = #{record.salesVolume,jdbcType=VARCHAR},
       price = #{record.price,jdbcType=BIGINT},
       created = #{record.created,jdbcType=DATE},
       updated = #{record.updated,jdbcType=DATE},
       image = #{record.image,jdbcType=VARCHAR},
-      description = #{record.description,jdbcType=VARCHAR},
       status = #{record.status,jdbcType=INTEGER}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
@@ -270,11 +247,8 @@
       <if test="title != null" >
         title = #{title,jdbcType=VARCHAR},
       </if>
-      <if test="pid != null" >
-        pid = #{pid,jdbcType=INTEGER},
-      </if>
-      <if test="pname != null" >
-        pname = #{pname,jdbcType=VARCHAR},
+      <if test="cid != null" >
+        cid = #{cid,jdbcType=INTEGER},
       </if>
       <if test="num != null" >
         num = #{num,jdbcType=INTEGER},
@@ -294,9 +268,6 @@
       <if test="image != null" >
         image = #{image,jdbcType=VARCHAR},
       </if>
-      <if test="description != null" >
-        description = #{description,jdbcType=VARCHAR},
-      </if>
       <if test="status != null" >
         status = #{status,jdbcType=INTEGER},
       </if>
@@ -306,15 +277,13 @@
   <update id="updateByPrimaryKey" parameterType="com.art.pojo.Item" >
     update item
     set title = #{title,jdbcType=VARCHAR},
-      pid = #{pid,jdbcType=INTEGER},
-      pname = #{pname,jdbcType=VARCHAR},
+      cid = #{cid,jdbcType=INTEGER},
       num = #{num,jdbcType=INTEGER},
       sales_volume = #{salesVolume,jdbcType=VARCHAR},
       price = #{price,jdbcType=BIGINT},
       created = #{created,jdbcType=DATE},
       updated = #{updated,jdbcType=DATE},
       image = #{image,jdbcType=VARCHAR},
-      description = #{description,jdbcType=VARCHAR},
       status = #{status,jdbcType=INTEGER}
     where id = #{id,jdbcType=INTEGER}
   </update>
