@@ -10,19 +10,18 @@
 	            <td>内容标题:</td>
 	            <td><input class="easyui-textbox" type="text" name="title" data-options="required:true" style="width: 280px;"></input></td>
 	        </tr>
-	        <tr>
-	            <td>内容子标题:</td>
-	            <td><input class="easyui-textbox" type="text" name="subTitle" style="width: 280px;"></input></td>
-	        </tr>
-	        <tr>
-	            <td>内容描述:</td>
-	            <td><input class="easyui-textbox" name="titleDesc" data-options="multiline:true,validType:'length[0,150]'" style="height:60px;width: 280px;"></input>
-	            </td>
-	        </tr>
+	  
 	         <tr>
 	            <td>URL:</td>
 	            <td><input class="easyui-textbox" type="text" name="url" style="width: 280px;"></input></td>
 	        </tr>
+	        <tr>
+	            <td>价格:</td>
+	            <td><input class="easyui-numberbox" type="text" name="priceView" data-options="min:1,max:99999999,precision:2,required:true" />
+	            	<input type="hidden" name="price"/>
+	            </td>
+	        </tr>
+	        
 	        <tr>
 	            <td>图片:</td>
 	            <td>
@@ -30,13 +29,7 @@
 	                <a href="javascript:void(0)" class="easyui-linkbutton onePicUpload">图片上传</a>
 	            </td>
 	        </tr>
-	        <tr>
-	            <td>图片2:</td>
-	            <td>
-	            	<input type="hidden" name="pic2" />
-	            	<a href="javascript:void(0)" class="easyui-linkbutton onePicUpload">图片上传</a>
-	            </td>
-	        </tr>
+	
 	        <tr>
 	            <td>内容:</td>
 	            <td>
@@ -64,8 +57,9 @@
 					$.messager.alert('提示','表单还未填写完成!');
 					return ;
 				}
+				$("#contentAddForm [name=price]").val(eval($("#contentAddForm [name=priceView]").val()) * 100);
 				contentAddEditor.sync();
-				
+				alert($("#contentAddForm").serialize());
 				$.post("/content/save",$("#contentAddForm").serialize(), function(data){
 					if(data.status == 200){
 						$.messager.alert('提示','新增内容成功!');

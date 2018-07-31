@@ -11,18 +11,15 @@
 	            <td>内容标题:</td>
 	            <td><input class="easyui-textbox" type="text" name="title" data-options="required:true" style="width: 280px;"></input></td>
 	        </tr>
-	        <tr>
-	            <td>内容子标题:</td>
-	            <td><input class="easyui-textbox" type="text" name="subTitle" style="width: 280px;"></input></td>
-	        </tr>
-	        <tr>
-	            <td>内容描述:</td>
-	            <td><input class="easyui-textbox" name="titleDesc" data-options="multiline:true,validType:'length[0,150]'" style="height:60px;width: 280px;"></input>
-	            </td>
-	        </tr>
+	        
 	         <tr>
 	            <td>URL:</td>
 	            <td><input class="easyui-textbox" type="text" name="url" style="width: 280px;"></input></td>
+	        </tr>
+	        <tr>
+	            <td>价格:</td>
+	            <td><input class="easyui-textbox" name="price" style="width: 280px;"></input>
+	            </td>
 	        </tr>
 	        <tr>
 	            <td>图片:</td>
@@ -31,13 +28,7 @@
 	                <a href="javascript:void(0)" class="easyui-linkbutton onePicUpload">图片上传</a>
 	            </td>
 	        </tr>
-	        <tr>
-	            <td>图片2:</td>
-	            <td>
-	            	<input type="hidden" name="pic2" />
-	            	<a href="javascript:void(0)" class="easyui-linkbutton onePicUpload">图片上传</a>
-	            </td>
-	        </tr>
+	        
 	        <tr>
 	            <td>内容:</td>
 	            <td>

@@ -3,3 +3,5 @@ com\art\controller\PageController.class
 com\art\controller\pictureController.class
 com\art\util\FastDFSClient.class
 com\art\controller\ItemCatController.class
+com\art\controller\ContentController.class
+com\art\controller\ContentCategoryController.class

@@ -13,6 +13,9 @@
         <dependent-module archiveName="art-manager-pojo-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/art-manager-pojo/art-manager-pojo">
             <dependency-type>uses</dependency-type>
         </dependent-module>
+        <dependent-module archiveName="art-content-interface-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/art-content-interface/art-content-interface">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
         <dependent-module archiveName="fastdfs_client-1.25.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/fastdfs_client/fastdfs_client">
             <dependency-type>uses</dependency-type>
         </dependent-module>

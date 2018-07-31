@@ -1,3 +1,5 @@
+com\art\mapper\ArtContentCategoryMapper.class
+com\art\mapper\ItemCatMapper.class
+com\art\mapper\ContentMapper.class
 com\art\mapper\ItemMapper.class
 com\art\mapper\ItemDescMapper.class
-com\art\mapper\ItemCatMapper.class
