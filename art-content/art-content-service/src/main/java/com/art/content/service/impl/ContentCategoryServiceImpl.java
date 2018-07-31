@@ -75,16 +75,12 @@ public class ContentCategoryServiceImpl implements ContentCategoryService {
 
 	@Override
 	public ArtResult deleteContentCategoryById(Long id) {
-		System.out.println(id);
 		// 1.查看是否是父节点
 		ArtContentCategory artContentCategory = artcontentCategoryMapper.selectByPrimaryKey(id);
 
-		if (artContentCategory.getIsParent())
-		{
+		if (artContentCategory.getIsParent()) {
 			return ArtResult.build(400, "该节点是父节点，不能删除");
-		}
-		else
-		{
+		} else {
 			// 2.不是父节点，删除
 			long pid = artContentCategory.getParentId();
 			int i = artcontentCategoryMapper.deleteByPrimaryKey(id);
@@ -104,7 +100,7 @@ public class ContentCategoryServiceImpl implements ContentCategoryService {
 				return ArtResult.ok();
 			}
 		}
-		
+
 		return ArtResult.build(500, "哎呦，服务器出错了！");
 	}
 
