@@ -4,7 +4,9 @@ import java.io.Serializable;
 import java.util.Date;
 
 public class Content implements Serializable {
-    private Long id;
+   
+
+	private Long id;
 
     private Long categoryId;
 
@@ -21,6 +23,11 @@ public class Content implements Serializable {
     private String content;
 
     private Long price;
+    @Override
+   	public String toString() {
+   		return "Content [id=" + id + ", categoryId=" + categoryId + ", title=" + title + ", url=" + url + ", pic=" + pic
+   				+ ", created=" + created + ", updated=" + updated + ", content=" + content + ", price=" + price + "]";
+   	}
 
     public Long getId() {
         return id;

@@ -75,18 +75,26 @@ public class ContentCategoryServiceImpl implements ContentCategoryService {
 
 	@Override
 	public ArtResult deleteContentCategoryById(Long id) {
+		List<ArtContentCategory> list = artcontentCategoryMapper.selectByExample(null);
 		// 1.查看是否是父节点
 		ArtContentCategory artContentCategory = artcontentCategoryMapper.selectByPrimaryKey(id);
-
+		long pid = artContentCategory.getParentId();
+      //2.如果是父节点，删除它及其，下边的所有子节点
 		if (artContentCategory.getIsParent()) {
-			return ArtResult.build(400, "该节点是父节点，不能删除");
+			for (ArtContentCategory acg : list) {
+				if (acg.getParentId() == id)
+					artcontentCategoryMapper.deleteByPrimaryKey(acg.getId());
+			}
+			int i = artcontentCategoryMapper.deleteByPrimaryKey(id);
+			if (i == 1) 
+				return ArtResult.build(200, "删除成功！");
 		} else {
 			// 2.不是父节点，删除
-			long pid = artContentCategory.getParentId();
+			
 			int i = artcontentCategoryMapper.deleteByPrimaryKey(id);
 			// 如果删除成功，查看该父节点是否还有子节点，如果没有，则将其置为页子节点
 			if (i == 1) {
-				List<ArtContentCategory> list = artcontentCategoryMapper.selectByExample(null);
+				
 				boolean b = true;
 				for (ArtContentCategory acg : list) {
 					if (acg.getParentId() == pid)

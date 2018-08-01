@@ -26,6 +26,7 @@ public class ContentServiceImpl implements ContentService {
 	private ContentMapper contentmapper;
 	
 	public ArtResult addContent(Content content) {
+		System.out.println(content);
 		//补全pojo的属性
 		content.setCreated( new Date());
 		content.setUpdated(new Date());

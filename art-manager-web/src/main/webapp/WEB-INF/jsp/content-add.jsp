@@ -8,7 +8,7 @@
 	    <table cellpadding="5">
 	        <tr>
 	            <td>内容标题:</td>
-	            <td><input class="easyui-textbox" type="text" name="title" data-options="required:true" style="width: 280px;"></input></td>
+	            <td><input class="easyui-textbox" type="text" name="title"  style="width: 280px;"></input></td>
 	        </tr>
 	  
 	         <tr>
@@ -17,8 +17,8 @@
 	        </tr>
 	        <tr>
 	            <td>价格:</td>
-	            <td><input class="easyui-numberbox" type="text" name="priceView" data-options="min:1,max:99999999,precision:2,required:true" />
-	            	<input type="hidden" name="price"/>
+	            <td><input class="easyui-numberbox" type="text" name="priceView"  value="0" data-options="min:1,max:99999999,precision:2" />
+	            	<input type="hidden" name="price" value="0"/>
 	            </td>
 	        </tr>
 	        
@@ -59,7 +59,6 @@
 				}
 				$("#contentAddForm [name=price]").val(eval($("#contentAddForm [name=priceView]").val()) * 100);
 				contentAddEditor.sync();
-				alert($("#contentAddForm").serialize());
 				$.post("/content/save",$("#contentAddForm").serialize(), function(data){
 					if(data.status == 200){
 						$.messager.alert('提示','新增内容成功!');

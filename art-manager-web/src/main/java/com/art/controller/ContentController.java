@@ -22,8 +22,15 @@ public class ContentController {
 	
 	@RequestMapping("/content/save")
 	@ResponseBody
-	public ArtResult addContent(Content content) {
-		ArtResult result = contentService.addContent(content);
+	public ArtResult addContent(Content con) {
+//		Content con = new Content();
+//		con.setCategoryId(categoryId);
+//		con.setTitle(title);
+//		con.setContent(content);
+//		con.setUrl(url);
+//		con.setPrice(price);
+//		con.setPic(pic);
+		ArtResult result = contentService.addContent(con);
 		return result;
 	}
 	@RequestMapping("/content/query/list")
